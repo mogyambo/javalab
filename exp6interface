@@ -1,0 +1,52 @@
+package exp6;
+
+public interface Animal {
+	void makesound();
+}
+
+class Dog implements Animal{
+	public void makesound()
+	{
+		System.out.println("Dog sound:Bhavv");
+	}
+
+}
+
+class Cat implements Animal{
+	public void makesound() {
+		System.out.println("Cat sound:Meooo");
+	}
+}
+
+class Cow implements Animal{
+	public void makesound() {
+		System.out.println("Cow sound:Hummm");
+	}
+}
+
+class Lion implements Animal{
+	public void makesound() {
+		System.out.println("Lion sound:Bhavvv");
+	}
+}
+
+package exp6;
+
+public class Interface {
+	public static void main(String[] args)
+	{
+		Animal Dog=new Dog();
+		Animal Cat=new Cat();
+		Animal Cow=new Cow();
+		Animal Lion=new Lion();
+		
+		Dog.makesound();
+		Cat.makesound();
+		Cow.makesound();
+		Lion.makesound();
+		
+		
+	}
+
+}
+
