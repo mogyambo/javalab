@@ -1,0 +1,77 @@
+package exp8;
+
+//Shared resource
+class Shared {
+ boolean turn = true; // true = A11's turn, false = A22's turn 
+
+ synchronized void printFromA11(int i) throws InterruptedException {
+     while (!turn) {
+         wait();
+     }
+     System.out.println("A11: " + i);
+     turn = false;
+     notify();
+ }
+
+ synchronized void printFromA22(int i) throws InterruptedException {
+     while (turn) {
+         wait();
+     }
+     System.out.println("A22: " + i);
+     turn = true;
+     notify();
+ }
+}
+
+//First thread
+class A11 extends Thread {
+ Shared shared;
+
+ A11(Shared shared) {
+     this.shared = shared;
+ }
+
+ public void run() {
+     try {
+         for (int i = 0; i < 5; i++) {
+             shared.printFromA11(i);
+             Thread.sleep(300); // Optional: for smoother output
+         }
+     } catch (InterruptedException e) {
+         System.out.println("A11 Exception");
+     }
+ }
+}
+
+//Second thread
+class A22 extends Thread {
+ Shared shared;
+
+ A22(Shared shared) {
+     this.shared = shared;
+ }
+
+ public void run() {
+     try {
+         for (int i = 0; i < 5; i++) {
+             shared.printFromA22(i);
+             Thread.sleep(300); // Optional: for smoother output
+         }
+     } catch (InterruptedException e) {
+         System.out.println("A22 Exception");
+     }
+ }
+}
+
+//✅ Main class (renamed from Thread to ThreadDemo)
+public class Threaddemo {
+	 public static void main(String[] args) {
+	        Shared shared = new Shared();
+
+	        A11 obj1 = new A11(shared);
+	        A22 obj2 = new A22(shared);
+
+	        obj1.start();
+	        obj2.start();
+	    }
+}
