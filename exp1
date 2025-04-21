@@ -1,0 +1,68 @@
+java 1
+//prime
+public class Prime {
+	public static void main(String[] args) {
+		int count = 0;
+		int num = 2;
+		System.out.println("First 50 prime numbers are:");
+		while (count < 50) {
+            if (isPrime(num)) {
+                System.out.print(num + " ");
+                count++;
+            }
+            num++;
+        }
+    }
+	 public static boolean isPrime(int n) {
+	        if (n <= 1)
+	            return false;
+
+	        for (int i = 2; i <= n / 2; i++) {
+	            if (n % i == 0)
+	                return false;
+	        }
+	        return true;
+	}
+}
+//Factorial
+package Scanner;
+import java.util.Scanner;
+
+public class Factorial {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter a number: ");
+		int num = scanner.nextInt();
+		
+		long factorial = 1;
+		for(int i = 1;i<=num;i++) {
+			factorial = factorial*i;
+		}
+		System.out.println("Factorial of " + num + "is: " + factorial);	
+	}
+}
+//sumavg
+package exp1;
+import java.util.Scanner;
+public class SumAvg {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter value of N: ");
+		int num = scanner.nextInt();
+		int sum = 0;
+		double average;
+		
+		for(int i = 1;i<= num;i++) {
+			System.out.println("Enter number" + i +":");
+			int number = scanner.nextInt();
+			sum = sum+number;
+		}
+		average = (double)sum/num;
+		
+		System.out.println("Sum = "+ sum);
+		System.out.println("Average =" + average);
+		
+	}
+
+}
