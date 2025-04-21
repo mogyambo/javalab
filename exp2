@@ -1,0 +1,61 @@
+package exp2;
+import java.util.Scanner;
+public class Rctangle {
+	double length;
+	double width;
+	double area;
+	String color;
+	 
+	public void get_length() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("The length is: ");
+		length = scanner.nextInt();
+	}
+	
+	public void get_width() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("The width is: ");
+		width = scanner.nextInt();
+	}
+	
+	public void get_color() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("The color is: ");
+		color = scanner.next();
+	}
+	
+	public void find_area() {
+		area = length*width;
+	}
+	
+	public void display_area() {
+		System.out.println("The area is:" + area);
+	}
+	
+	public static void main(String[] args) {
+		Rctangle R1 = new Rctangle();
+		Rctangle R2 = new Rctangle();
+		
+		System.out.println("The details of Rectangle1 is: ");
+		R1.get_length();
+		R1.get_width();
+		R1.get_color();
+		R1.find_area();
+		R1.display_area();
+		
+		System.out.println("The details of Rectangle2 is: ");
+		R2.get_length();
+		R2.get_width();
+		R2.get_color();
+		R2.find_area();
+		R2.display_area();
+		
+		if(R1.area == R2.area && R1.color ==R2.color) {
+			System.out.println("Matching!!");
+		}
+		else {
+			System.out.println("non matching!!");
+		}
+	}
+
+}
