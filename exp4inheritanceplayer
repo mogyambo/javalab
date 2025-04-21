@@ -1,0 +1,70 @@
+package exp4;
+
+class Player{
+	String name;
+	int age;
+	Player(String name,int age){
+		this.name = name;
+		this.age = age;
+	}
+	
+	void displayinfo() {
+		System.out.println("Name: " + name);
+		System.out.println("Age: " + age);
+	}
+}
+
+class Cricket_player extends Player{
+	String role;
+	Cricket_player(String name, int age ,String role){
+		super(name,age);
+		this.role = role;
+	}
+	void displayCricketinfo() {
+		displayinfo();
+		System.out.println("Cricket role: " + role);
+	}
+}
+
+class Football_player extends Player{
+	String position;
+	Football_player(String name,int age,String position){
+		super(name,age);
+		this.position = position;
+	}
+	void displayfootballinfo() {
+		displayinfo();
+		System.out.println("Position: " + position);
+	}
+}
+
+class Hockey_player extends Player{
+	String sticktype;
+	Hockey_player(String name, int age, String sticktype){
+		super(name,age);
+		this.sticktype = sticktype;
+	}
+	void displayhockeyinfo() {
+		displayinfo();
+		System.out.println("Sticktype: " + sticktype);
+	}
+}
+public class Inheritance {
+	public static void main(String[] args) {
+		Cricket_player cPlayer = new Cricket_player("Rohit Sharma",35,"Batsman");
+		Football_player fPlayer = new Football_player("Messi",38,"Forward");
+		Hockey_player hPlayer = new Hockey_player("Manpreet Singh",38,"Right-Handed");
+		
+		System.out.println("Cricket player info: ");
+		cPlayer.displayCricketinfo();
+		
+		System.out.println("Football player info: ");
+		fPlayer.displayfootballinfo();
+		
+		System.out.println("Hockey player info: ");
+		hPlayer.displayhockeyinfo();
+	}
+ 
+ }
+
+
